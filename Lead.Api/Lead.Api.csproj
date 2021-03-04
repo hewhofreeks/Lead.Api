@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.3" />
+    <PackageReference Include="NServiceBus" Version="7.4.4" />
+    <PackageReference Include="NServiceBus.Extensions.Hosting" Version="1.1.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.10.7" />
+    <PackageReference Include="NSwag.Core" Version="13.10.7" />
+    <PackageReference Include="NSwag.Generation" Version="13.10.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lead.Api.DataModel\Lead.Api.DataModel.csproj" />
+    <ProjectReference Include="..\Lead.Messaging\Lead.Messaging.csproj" />
+  </ItemGroup>
+
+
+</Project>

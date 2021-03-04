@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "External.ServiceBusHost": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

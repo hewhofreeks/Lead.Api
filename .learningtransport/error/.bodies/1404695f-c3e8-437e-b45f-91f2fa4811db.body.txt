@@ -1,0 +1,1 @@
+<?xml version="1.0"?><MatchLeadToContractors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.net/Lead.Messaging.Commands"><LeadID>1</LeadID><ContractorIDs><Int64>1</Int64><Int64>3</Int64></ContractorIDs><TimeSent>2021-03-03T23:10:50.3988182-06:00</TimeSent></MatchLeadToContractors>
