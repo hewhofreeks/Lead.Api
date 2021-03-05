@@ -24,6 +24,8 @@ namespace Lead.Api
 
         public IConfiguration Configuration { get; }
 
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -64,7 +66,8 @@ namespace Lead.Api
                 endpoints.MapControllers();
             });
 
-            context.Database.EnsureCreated();
+            if(!env.IsEnvironment("integration"))
+                context.Database.EnsureCreated();
         }
     }
 }

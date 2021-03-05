@@ -34,9 +34,25 @@ namespace Lead.ServiceBusHost.Sagas
 
         public async Task Handle(SearchForContractorsResponse message, IMessageHandlerContext context)
         {
-            Data.ContractorIDs = message.AvailableContractors.ToList();
+            if(message.AvailableContractors.Count() == 0)
+            {
+                await context.Publish(new MatchingProcessFinished
+                {
+                    LeadID = Data.LeadID,
+                    MatchIDs = new List<long>(),
+                    Name = Data.Name,
+                    ZipCode = Data.ZipCode
+                });
 
-            await context.SendLocal(new MatchLeadToContractors { ContractorIDs = Data.ContractorIDs, LeadID = Data.LeadID });
+                MarkAsComplete();
+            }
+            else
+            {
+                Data.ContractorIDs = message.AvailableContractors.ToList();
+
+                await context.SendLocal(new MatchLeadToContractors { ContractorIDs = Data.ContractorIDs, LeadID = Data.LeadID });
+            }
+
         }
 
         public async Task Handle(MatchLeadToContractorsResponse message, IMessageHandlerContext context)
@@ -48,6 +64,8 @@ namespace Lead.ServiceBusHost.Sagas
                 Name = Data.Name,
                 ZipCode = Data.ZipCode
             });
+
+            MarkAsComplete();
         }
     }
 
